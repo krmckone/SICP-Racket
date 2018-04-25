@@ -1,2 +1,2 @@
 # SICP-Racket
-Structure and interpretaion of computer programs exercises 
+Structure and interpretation of computer programs exercises 
