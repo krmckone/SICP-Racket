@@ -24,7 +24,15 @@
         (else (+ (total-weight(branch-structure(left-branch mobile)))
                  (total-weight(branch-structure(right-branch mobile)))))))
 
-(define x (make-mobile (make-branch 5 5) (make-branch 10 2)))
+(define (torque branch)
+  (if (not (pair? (branch-structure branch)))
+      (* (branch-length branch)
+         (branch-structure branch))
+      (torque (branch-structure branch))))
 
-(total-weight x)
+(define (balanced? mobile)
+  (= (torque (left-branch mobile))
+     (torque (right-branch mobile))))
+
+(balanced? (make-mobile (make-branch 4 (make-mobile (make-branch 2 2) (make-branch 2 4))) (make-branch 2 10)))
 
